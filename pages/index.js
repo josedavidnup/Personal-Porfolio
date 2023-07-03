@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Navbar from '../components/Navbar';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         />
         <link rel='icon' href='/jd_logo.png' />
       </Head>
+      <Navbar />
     </div>
   );
 }
