@@ -13,16 +13,16 @@ const Main = () => {
             NEVER STOP LEARNING!
           </p>
           <h1 className='py-4 text-gray-700'>
-            Hi, I&#39;m <span className='text-[#0566FE]'> Jose David</span>
+            Hi, I&apos;m <span className='text-[#0566FE]'> Jose David</span>
           </h1>
           <h1 className='py-2 text-gray-700'>
             A Full Stack and Machine Learning Developer
           </h1>
           <p className='py-4 text-gray-600 sm:max-w-[70%] m-auto'>
-            I'm dedicated to crafting comprehensive, full-stack applications
-            that seamlessly merge intuitive front-end interfaces with powerful
-            back-end systems, all while integrating cutting-edge machine
-            learning technologies.
+            I&apos;m dedicated to crafting comprehensive, full-stack
+            applications that seamlessly merge intuitive front-end interfaces
+            with powerful back-end systems, all while integrating cutting-edge
+            machine learning technologies.
           </p>
           <div className='flex items-center justify-between max-w-[330px] m-auto py-4'>
             <a

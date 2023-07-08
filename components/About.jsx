@@ -13,14 +13,14 @@ const About = () => {
           </p>
           <h2 className='py-4'>Who I Am</h2>
           <p className='py-2 text-gray-600'>
-            I'm a Python developer. I specialized in Machine Learning and I'm
-            currently working with the following stack of technologies: Python,
-            Numpy, Pandas, Scikit-learn, Keras, PyTorch, Tensorflow, Docker, and
-            AWS. I have a background in Full Stack developement with JavaScript.
-            I have spent +2 years of my career working for some Pyme
+            I&apos;m a Python developer. I specialized in Machine Learning and
+            I&apos;m currently working with the following stack of technologies:
+            Python, Numpy, Pandas, Scikit-learn, Keras, PyTorch, Tensorflow,
+            Docker, and AWS. I have a background in Full Stack developement with
+            JavaScript. I have spent +2 years of my career working for some Pyme
             corporations, in my last role at Full Stack. I consider myself a
             lifelong learner, with a growth mindset, interested in new
-            technologies, and enjoy working in a team. I'm open to new
+            technologies, and enjoy working in a team. I&apos;m open to new
             challenges that allow me to grow in my career and improve skills in
             the field of Machine Learning / Data Science while supporting and
             contributing to the growth of the team and the company.
