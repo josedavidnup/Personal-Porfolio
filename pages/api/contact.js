@@ -1,56 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-// export async function POST(request) {
-//   try {
-//     console.log(request);
-//     const { name, phone, email, subject, message } = request.body.data;
-//     console.log(name, phone, email, subject, message);
-
-//     if (!name || !phone || !email || !subject || !message) {
-//       throw new Error('Missing required fields');
-//     }
-
-//     const transporter = nodemailer.createTransport({
-//       service: 'zoho',
-//       host: 'smtp.zoho.in',
-//       port: 465,
-//       secure: true,
-//       auth: {
-//         user: process.env.NEXT_PUBLIC_EMAIL,
-//         pass: process.env.NEXT_PUBLIC_EMAIL_PASSWORD,
-//       },
-//     });
-
-//     const mailOption = {
-//       from: email,
-//       to: process.env.NEXT_PUBLIC_EMAIL,
-//       subject: subject,
-//       html: `
-//         <h3>Hello Augustine</h3>
-//         <ul>
-//           <li>title: ${subject}</li>
-//           <li>message: ${message}</li>
-//         </ul>
-//       `,
-//     };
-
-//     await transporter.sendMail(mailOption);
-
-//     return NextResponse.json(
-//       { message: 'Email Sent Successfully' },
-//       { status: 200 }
-//     );
-//   } catch (error) {
-//     console.error('Error sending email:', error);
-
-//     return NextResponse.json(
-//       { message: 'Failed to Send Email' },
-//       { status: 500 }
-//     );
-//   }
-// }
-
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
