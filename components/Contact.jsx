@@ -6,8 +6,38 @@ import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
 import ContactImg from '../public/assets/contact.webp';
+import axios from 'axios';
 
 const Contact = () => {
+  const [data, setData] = useState({
+    subject: '',
+    email: '',
+    name: '',
+    phone: '',
+    message: '',
+  });
+  const handleChange = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('/api/contact', data);
+      console.log(response.data);
+    } catch (error) {
+      alert('Error: ' + error.message);
+    }
+    setData({
+      subject: '',
+      email: '',
+      name: '',
+      phone: '',
+      message: '',
+    });
+  };
   return (
     <div id='contact' className='w-full lg:h-screen'>
       <div className='max-w-[1240px] m-auto px-2 py-16 w-full '>
@@ -74,11 +104,7 @@ const Contact = () => {
           {/* right */}
           <div className='col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
             <div className='p-4'>
-              <form
-                action='https://getform.io/f/a729bee2-af37-421c-9951-001fd757573f'
-                method='POST'
-                encType='multipart/form-data'
-              >
+              <form onSubmit={handleSubmit}>
                 <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
                   <div className='flex flex-col'>
                     <label className='uppercase text-sm py-2'>Name</label>
@@ -86,6 +112,8 @@ const Contact = () => {
                       className='border-2 rounded-lg p-3 flex border-gray-300'
                       type='text'
                       name='name'
+                      value={data.name}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className='flex flex-col'>
@@ -96,6 +124,8 @@ const Contact = () => {
                       className='border-2 rounded-lg p-3 flex border-gray-300'
                       type='text'
                       name='phone'
+                      value={data.phone}
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -105,6 +135,8 @@ const Contact = () => {
                     className='border-2 rounded-lg p-3 flex border-gray-300'
                     type='email'
                     name='email'
+                    value={data.email}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className='flex flex-col py-2'>
@@ -113,6 +145,8 @@ const Contact = () => {
                     className='border-2 rounded-lg p-3 flex border-gray-300'
                     type='text'
                     name='subject'
+                    value={data.subject}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className='flex flex-col py-2'>
@@ -121,9 +155,11 @@ const Contact = () => {
                     className='border-2 rounded-lg p-3 border-gray-300'
                     rows='10'
                     name='message'
+                    value={data.message}
+                    onChange={handleChange}
                   ></textarea>
                 </div>
-                <button className='w-full p-4 text-gray-100 mt-4'>
+                <button className='w-full p-4 text-gray-100 mt-4' type='submit'>
                   Send Message
                 </button>
               </form>
