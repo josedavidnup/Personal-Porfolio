@@ -1,10 +1,10 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
-import NavLogo from '../public/jd_logo.png';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -37,15 +37,13 @@ const Navbar = () => {
     >
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
         <Link href='/'>
-          <a>
-            <Image
-              src={NavLogo}
-              alt='/'
-              width='100'
-              height='75'
-              className='cursor-pointer'
-            />
-          </a>
+          <Image
+            src={'/jd_logo.png'}
+            alt='/'
+            width='100'
+            height='75'
+            className='cursor-pointer'
+          />
         </Link>
         <div>
           <ul style={{ color: `${linkColor}` }} className='hidden md:flex'>
@@ -97,9 +95,7 @@ const Navbar = () => {
           <div>
             <div className='flex w-full items-center justify-between'>
               <Link href='/'>
-                <a>
-                  <Image src={NavLogo} width='87' height='60' alt='/' />
-                </a>
+                <Image src={'/jd_logo.png'} width='87' height='60' alt='/' />
               </Link>
               <div
                 onClick={handleNav}

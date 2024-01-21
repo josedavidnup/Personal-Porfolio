@@ -25,7 +25,7 @@ const Main = () => {
             machine learning technologies.
           </p>
           <div className='flex items-center justify-between max-w-[330px] m-auto py-4'>
-            <a
+            <Link
               href='https://www.linkedin.com/in/josedavidnpx/'
               target='_blank'
               rel='noreferrer'
@@ -33,8 +33,8 @@ const Main = () => {
               <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                 <FaLinkedinIn />
               </div>
-            </a>
-            <a
+            </Link>
+            <Link
               href='https://github.com/josedavidnup'
               target='_blank'
               rel='noreferrer'
@@ -42,7 +42,7 @@ const Main = () => {
               <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                 <FaGithub />
               </div>
-            </a>
+            </Link>
             <Link href='/#contact'>
               <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                 <AiOutlineMail />

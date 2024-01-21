@@ -1,7 +1,4 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
-import defaultImg from '../public/assets/projects/default.png';
 import ProjectItem from './ProjectItem';
 
 const Projects = () => {
@@ -15,25 +12,25 @@ const Projects = () => {
         <div className='grid md:grid-cols-2 gap-8'>
           <ProjectItem
             title='E-commerce'
-            backgroundImg={defaultImg}
+            backgroundImg={'/assets/projects/default.png'}
             projectUrl='/property'
             tech='React JS'
           />
           <ProjectItem
             title='Booking'
-            backgroundImg={defaultImg}
+            backgroundImg={'/assets/projects/default.png'}
             projectUrl='/crypto'
             tech='React JS'
           />
           <ProjectItem
             title='Chat'
-            backgroundImg={defaultImg}
+            backgroundImg={'/assets/projects/default.png'}
             projectUrl='/netflix'
             tech='React JS'
           />
           <ProjectItem
             title='ML App'
-            backgroundImg={defaultImg}
+            backgroundImg={'/assets/projects/default.png'}
             projectUrl='/twitch'
             tech='Next JS'
           />

@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import AboutImg from '../public/assets/about.jpeg';
 
 const About = () => {
   return (
@@ -40,7 +39,13 @@ const About = () => {
           </Link>
         </div>
         <div className='w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4 hover:scale-105 ease-in duration-300'>
-          <Image src={AboutImg} className='rounded-xl' alt='Jose David Nuñez' />
+          <Image
+            src={'/assets/jose_david.jpeg'}
+            className='rounded-xl'
+            alt='Jose David Nuñez'
+            width={70}
+            height={70}
+          />
         </div>
       </div>
     </div>

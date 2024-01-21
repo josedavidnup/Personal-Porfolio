@@ -1,34 +1,41 @@
+'use client';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
-import ContactImg from '../public/assets/contact.webp';
 import axios from 'axios';
+import { FormData } from '../utils/definitions';
 
 const Contact = () => {
-  const [data, setData] = useState({
+  const [data, setData] = useState<FormData>({
     subject: '',
     email: '',
     name: '',
     phone: '',
     message: '',
   });
-  const handleChange = (e) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setData({
       ...data,
       [e.target.name]: e.target.value,
     });
   };
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const response = await axios.post('/api/contact', data);
       console.log(response.data);
     } catch (error) {
-      alert('Error: ' + error.message);
+      if (error instanceof Error) {
+        alert('Error: ' + error.message);
+      } else {
+        alert('An unknown error occurred');
+      }
     }
     setData({
       subject: '',
@@ -52,8 +59,10 @@ const Contact = () => {
               <div>
                 <Image
                   className='rounded-xl hover:scale-105 ease-in duration-300'
-                  src={ContactImg}
+                  src={'/assets/contact.webp'}
                   alt='/'
+                  width={70}
+                  height={70}
                 />
               </div>
               <div>
@@ -67,7 +76,7 @@ const Contact = () => {
               <div>
                 <p className='uppercase pt-8'>Connect With Me</p>
                 <div className='flex items-center justify-between py-4'>
-                  <a
+                  <Link
                     href='https://www.linkedin.com/in/josedavidnpx/'
                     target='_blank'
                     rel='noreferrer'
@@ -75,8 +84,8 @@ const Contact = () => {
                     <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                       <FaLinkedinIn />
                     </div>
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href='https://github.com/josedavidnup'
                     target='_blank'
                     rel='noreferrer'
@@ -84,17 +93,15 @@ const Contact = () => {
                     <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                       <FaGithub />
                     </div>
-                  </a>
+                  </Link>
 
                   <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                     <AiOutlineMail />
                   </div>
                   <Link href='/resume'>
-                    <a>
-                      <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                        <BsFillPersonLinesFill />
-                      </div>
-                    </a>
+                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                      <BsFillPersonLinesFill />
+                    </div>
                   </Link>
                 </div>
               </div>
@@ -153,7 +160,7 @@ const Contact = () => {
                   <label className='uppercase text-sm py-2'>Message</label>
                   <textarea
                     className='border-2 rounded-lg p-3 border-gray-300'
-                    rows='10'
+                    rows={10}
                     name='message'
                     value={data.message}
                     onChange={handleChange}
@@ -168,14 +175,9 @@ const Contact = () => {
         </div>
         <div className='flex justify-center py-12'>
           <Link href='/'>
-            <a>
-              <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
-                <HiOutlineChevronDoubleUp
-                  className='text-[#0566FE]'
-                  size={30}
-                />
-              </div>
-            </a>
+            <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
+              <HiOutlineChevronDoubleUp className='text-[#0566FE]' size={30} />
+            </div>
           </Link>
         </div>
       </div>
