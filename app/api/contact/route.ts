@@ -2,7 +2,10 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { ContactRequest } from '../../utils/definitions';
 import nodemailer from 'nodemailer';
 
-export default async function POST(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === 'POST') {
     try {
       const { name, phone, email, subject, message }: ContactRequest = req.body;
