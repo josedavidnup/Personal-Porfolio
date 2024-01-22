@@ -6,8 +6,8 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
-import axios from 'axios';
 import { FormData } from '../utils/definitions';
+import { sendEmail } from '../utils/functions';
 
 const Contact = () => {
   const [data, setData] = useState<FormData>({
@@ -28,8 +28,8 @@ const Contact = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/contact', data);
-      console.log(response.data);
+      const response = await sendEmail(data);
+      console.log(response);
     } catch (error) {
       if (error instanceof Error) {
         alert('Error: ' + error.message);

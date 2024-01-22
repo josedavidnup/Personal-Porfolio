@@ -1,4 +1,3 @@
-import { StaticImageData } from 'next/image';
 export interface ContactRequest {
   name: string | null;
   phone: string | null;
